@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emaxis - Creative Solutions</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f7f9fc;
+      color: #2c3e50;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #004d99;
+      color: white;
+      padding: 20px 40px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 1.5px;
+    }
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+    nav a {
+      color: #cce6ff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      background-color: #0066cc;
+      color: white;
+      outline: none;
+    }
+    main {
+      max-width: 900px;
+      margin: 110px auto 60px;
+      padding: 0 25px;
+    }
+    section {
+      margin-bottom: 70px;
+      text-align: center;
+    }
+    h2 {
+      color: #004d99;
+      font-size: 32px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      border-bottom: 3px solid #004d99;
+      display: inline-block;
+      padding-bottom: 8px;
+      letter-spacing: 1.2px;
+    }
+    /* Services */
+    .service {
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+      transition: box-shadow 0.3s ease;
+    }
+    .service:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .service img {
+      width: 180px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .service-content {
+      flex: 1;
+    }
+    .service-content h3 {
+      margin-top: 0;
+      color: #003366;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .service-content p {
+      margin: 8px 0 0 0;
+      font-size: 16px;
+      color: #555;
+    }
+    /* About and home text */
+    #home p,
+    #about p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 18px;
+      color: #444;
+    }
+    /* Contact */
+    #contact p {
+      font-size: 18px;
+      margin: 8px 0;
+      color: #333;
+    }
+    form {
+      margin-top: 25px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    form:hover {
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    }
+    label {
+      display: block;
+      margin-top: 18px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-top: 6px;
+      border-radius: 7px;
+      border: 1.5px solid #bbb;
+      font-size: 16px;
+      font-family: inherit;
+      color: #222;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      border-color: #004d99;
+      outline: none;
+      box-shadow: 0 0 6px #7eaaff;
+    }
+    button {
+      margin-top: 25px;
+      background-color: #004d99;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: block;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #0066cc;
+      transform: translateY(-2px);
+    }
+    /* Footer */
+    footer {
+      background-color: #003366;
+      color: #cce6ff;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+    }
+    footer a {
+      color: #cce6ff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+    }
+    footer a:hover,
+    footer a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .service {
+        flex-direction: column;
+        text-align: center;
+      }
+      .service img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+      }
+      .service-content {
+        text-align: center;
+      }
+      nav {
+        gap: 15px;
+      }
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+      }
+      header h1 {
+        font-size: 24px;
+      }
+      nav a {
+        font-size: 15px;
+        padding: 6px 10px;
+      }
+      main {
+        margin: 130px 15px 60px;
+        padding: 0 15px;
+      }
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Emaxis</h1>
+  <nav>
+    <a href="#home" tabindex="1">Home</a>
+    <a href="#services" tabindex="2">Services</a>
+    <a href="#about" tabindex="3">About Us</a>
+    <a href="#contact" tabindex="4">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home" tabindex="-1">
+    <h2>Welcome to Emaxis</h2>
+    <p>We offer professional <strong>Graphic Designing</strong>, <strong>Logo Designing</strong>, and <strong>Facebook Ads</strong> to grow your business effectively.</p>
+  </section>
+
+  <section id="services" tabindex="-1">
+    <h2>Our Services</h2>
+
+    <div class="service" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Graphic Designing" />
+      <div class="service-content">
+        <h3>Graphic Designing</h3>
+        <p>We create beautiful and professional graphics tailored to your business needs.</p>
+      </div>
+    </div>
+
+    <div class="service" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=800&q=80" alt="Logo Designing" />
+      <div class="service-content">
+        <h3>Logo Designing</h3>
+        <p>Our unique logo designs help your brand stand out and be memorable.</p>
+      </div>
+    </div>
+
+    <div class="service" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Facebook Ads" />
+      <div class="service-content">
+        <h3>Facebook Ads</h3>
+        <p>Reach your audience and boost sales with targeted Facebook advertising campaigns.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" tabindex="-1">
+    <h2>About Us</h2>
+    <p>Emaxis is a creative agency committed to delivering high-quality design and marketing solutions. We help businesses grow through stunning visuals and effective advertising.</p>
+    <p>Contact us today and let’s take your business to the next level!</p>
+  </section>
+
+  <section id="contact" tabindex="-1">
+    <h2>Contact Us</h2>
+    <p>Phone: <a href="tel:+923153478661" style="color:#004d99;">+92 315 3478661</a></p>
+    <p>Email: <a href="mailto:emaxisofficial@gmail.com" style="color:#004d99;">emaxisofficial@gmail.com</a></p>
+
+    <form onsubmit="alert('Thank you for reaching out! We will get back to you soon.'); return false;">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Your Name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Your Email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  Contact us: <a href="tel:+923153478661">+92 315 3478661</a> | Email: <a href="mailto:emaxisofficial@gmail.com">emaxisofficial@gmail.com</a><br>
+  <a href="https://www.facebook.com/emaxisofficial/" target="_blank" rel="noopener noreferrer">Facebook</a> | 
+  <a href="https://www.instagram.com/emaxisofficial/" target="_blank" rel="noopener noreferrer">Instagram</a>
+</footer>
+
+</body>
+</html>
+
